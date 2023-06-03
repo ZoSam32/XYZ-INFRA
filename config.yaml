@@ -1,0 +1,6 @@
+environment: poc
+az_region: eus
+service: xyz_app
+location: "East US"
+tags:
+  project: XYZ_Exercise
