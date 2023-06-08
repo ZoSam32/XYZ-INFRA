@@ -26,6 +26,32 @@ provider "azurerm" {
   features {}
 }
 
+resource "azurerm_resource_group" "xyz-metrics" {
+    name = "rg-${local.settings.environment}-${local.settings.az_region}-${local.settings.service}"
+    location = local.settings.location
+}
+
+resource "azurerm_log_analytics_workspace" "xyz-metrics" {
+    name = "xyz-workspace"
+    location = local.settings.location
+    resource_group_name = azurerm_resource_group.xyz-metrics.name
+    sku = "PerGB2018"
+}
+
+resource "azurerm_log_analytics_solution" "xyz-metrics" {
+    solution_name = "ContainerInsights"
+    location = local.settings.location
+    resource_group_name = azurerm_resource_group.xyz-metrics.name
+    workspace_name = azurerm_log_analytics_workspace.xyz-metrics.name
+    workspace_resource_id = azurerm_log_analytics_workspace.xyz-metrics.id
+
+    plan {
+        publisher = "Microsoft"
+        product = "OMSGallery/ContainerInsights"
+    }
+}
+
+
 resource "azurerm_resource_group" "xyz" {
     name = "rg-xyz-${local.settings.environment}-${local.settings.az_region}-${local.settings.service}"
     location = local.settings.location
@@ -40,13 +66,18 @@ resource "azurerm_kubernetes_cluster" "xyz" {
 
     default_node_pool {
       name = "default"
-      node_count = 2
+      node_count = 3
       vm_size = "Standard_B2s"
+      zones = [1,2,3]
     }
 
     identity {
       type = "SystemAssigned"
     }
+
+    oms_agent {
+        log_analytics_workspace_id = "${azurerm_log_analytics_workspace.xyz-metrics.id}"
+        }
 
     tags = local.settings.tags
 }
