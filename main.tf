@@ -27,7 +27,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "xyz-metrics" {
-    name = "rg-${local.settings.environment}-${local.settings.az_region}-${local.settings.service}"
+    name = "rg-${local.settings.environment}-${local.settings.az_region}-${local.settings.service}-metrics"
     location = local.settings.location
 }
 
@@ -53,7 +53,7 @@ resource "azurerm_log_analytics_solution" "xyz-metrics" {
 
 
 resource "azurerm_resource_group" "xyz" {
-    name = "rg-xyz-${local.settings.environment}-${local.settings.az_region}-${local.settings.service}"
+    name = "rg-${local.settings.environment}-${local.settings.az_region}-${local.settings.service}"
     location = local.settings.location
     tags = local.settings.tags
 }
