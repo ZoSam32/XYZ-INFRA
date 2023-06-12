@@ -8,6 +8,11 @@ variable "client_id" {
     sensitive = true
 }
 
+variable "sub_id" {
+    type = string
+    sensitive = true
+}
+
 # variable "tenant_id" {
 #     type = string
 #     description = "(optional) describe your variable"
