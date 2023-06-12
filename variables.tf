@@ -1,4 +1,4 @@
-variable "key" {
-    type = string
-    sensitive = true
-}
+# variable "key" {
+#     type = string
+#     sensitive = true
+# }
