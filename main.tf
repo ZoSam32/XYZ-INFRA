@@ -21,7 +21,7 @@ provider "azurerm" {
   subscription_id = local.settings.subscription_id
   client_id       = local.settings.client_id
   client_secret   = local.settings.client_secret
-  tenant_id       = local.settings.tenant_id
+  tenant_id       = var.tenant_id
   features {}
 }
 
