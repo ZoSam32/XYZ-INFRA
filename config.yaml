@@ -1,7 +1,7 @@
-subcription_id: ${{ AZ_CLIENT_SECRET }}
-client_id: ${{ AZ_CLIENT_ID }}
-client_secret: ${{ AZ_CLIENT_SECRET }}
-tenant_id: ${{ AZ_TENANT_ID }}
+subcription_id: ${{ secrets.AZ_CLIENT_SECRET }}
+client_id: ${{ secrets.AZ_CLIENT_ID }}
+client_secret: ${{ secrets.AZ_CLIENT_SECRET }}
+tenant_id: ${{ secrets.AZ_TENANT_ID }}
 environment: poc
 az_region: eus
 service: xyz_app
