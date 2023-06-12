@@ -13,7 +13,7 @@ variable "sub_id" {
     sensitive = true
 }
 
-# variable "tenant_id" {
-#     type = string
-#     description = "(optional) describe your variable"
-# }
+variable "tenant_id" {
+    type = string
+    sensitive = true
+}

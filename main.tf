@@ -21,7 +21,7 @@ provider "azurerm" {
   subscription_id = var.sub_id
   client_id       = var.client_id
   client_secret   = var.client_secret
-  tenant_id       = "e05b1f1d-4425-476a-8b6d-cf9e17a51da7"
+  tenant_id       = var.tenant_id
   features {}
 }
 
