@@ -28,7 +28,7 @@ jobs:
       run: terraform fmt
     - name: Terraform plan
       run: |
-        terraform plan -var="client_secret=${{ secrets.az_client_secret}}" -var="client_id=${{ secrets.az_client_id }}" -out tfplan
+        terraform plan -var="client_secret=${{ secrets.az_client_secret}}" -var="client_id=${{ secrets.az_client_id }}" -var="sub_id=${{ secrets.az_sub_id }}" -out tfplan
     - name: Publish TF Plan
       uses: actions/upload-artifact@v3
       with:
