@@ -11,7 +11,7 @@ on:
 jobs:
   terraform-plan:
     name: Terraform Plan
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
