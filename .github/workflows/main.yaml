@@ -22,3 +22,15 @@ jobs:
         terraform_wrapper: false
     - name: TF init
       run: terraform init -backend-config="access_key=${{ secrets.AZ_TFSTATE_KEY }}"
+    - name: TF validate
+      run: terraform validate
+    - name: TF format
+      run: terraform fmt
+    - name: Terraform plan
+      run: |
+        terraform plan -out tfplan
+    - name: Publish TF Plan
+      uses: actions/upload-artifact@v3
+      with:
+        name: tfplan
+        path: tfplan
