@@ -11,14 +11,17 @@ locals {
 terraform {
   backend "azurerm"{
     # resource_group_name = "acr-sample"
-    storage_account_name = "tfstate7031"
+    # storage_account_name = "tfstate7031"
     container_name = "tfstate"
     key = "terraform.tfstate"
-    access_key = var.key
   }
 }
 
 provider "azurerm" {
+  subscription_id = local.settings.subscription_id
+  client_id = local.settings.client_id
+  client_secret = local.settings.client_secret
+  tenant_id = local.settings.tenant_id
   features {}
 }
 
