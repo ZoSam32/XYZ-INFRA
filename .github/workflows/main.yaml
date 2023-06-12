@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  terraform plan:
+  terraform-plan:
     name: Terraform Plan
     runs-on: unbuntu-latest
 
