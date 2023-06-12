@@ -21,4 +21,4 @@ jobs:
       with:
         terraform_wrapper: false
     - name: TF init
-      run: terraform init
+      run: terraform init -var=${{ secrets.az_tfstate_key}}
