@@ -59,9 +59,9 @@ jobs:
 
   initial-xyz-deploy:
     name: Deploy
-    # if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    # needs: [terraform-apply]
+    needs: [terraform-apply]
 
     steps:
     - uses: actions/checkout@v3
