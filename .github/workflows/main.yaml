@@ -70,20 +70,20 @@ jobs:
       with:
         creds: '{"clientId":"${{ secrets.AZ_CLIENT_ID }}","clientSecret":"${{ secrets.AZ_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZ_SUB_ID }}","tenantId":"${{ secrets.AZ_TENANT_ID }}"}'
     - name: Set AKS Context
-        id: set-context
-        uses: azure/aks-set-context@v3
-        with:
-          resource-group: 'rg-poc-eus-xyz_app'
-          cluster-name: 'aks-xyz-poc-eus-xyz_app'
-      - name: Setup kubectl
-        id: install-kubectl
-        uses: azure/setup-kubectl@v3
-      - name: Deploy to AKS
-        id: deploy-aks
-        uses: azure/k8s-deploy@v4
-        with:
-          namespace: 'xyz-app'
-          manifests: |
-            deploy.yaml
-          images: 'xyzappsample.azurecr.io/sample/xyzsample:latest'
-          pull-images: false
+      id: set-context
+      uses: azure/aks-set-context@v3
+      with:
+        resource-group: 'rg-poc-eus-xyz_app'
+        cluster-name: 'aks-xyz-poc-eus-xyz_app'
+    - name: Setup kubectl
+      id: install-kubectl
+      uses: azure/setup-kubectl@v3
+    - name: Deploy to AKS
+      id: deploy-aks
+      uses: azure/k8s-deploy@v4
+      with:
+        namespace: 'xyz-app'
+        manifests: |
+          deploy.yaml
+        images: 'xyzappsample.azurecr.io/sample/xyzsample:latest'
+        pull-images: false
