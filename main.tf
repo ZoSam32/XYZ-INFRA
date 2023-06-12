@@ -104,7 +104,7 @@ data "azuread_service_principal" "githubAction" {
 }
 
 resource "azurerm_role_assignment" "ghActionXYZ" {
-  principal_id = data.azuread_application.githubAction.object_id
+  principal_id = data.azuread_service_principal.githubAction.object_id
   role_definition_name = "Contributor"
   scope = azurerm_resource_group.xyz.id
 }
