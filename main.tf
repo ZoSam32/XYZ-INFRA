@@ -102,3 +102,9 @@ resource "azurerm_role_assignment" "acr" {
 data "azuread_application" "githubAction" {
   display_name = "ghActionXYZ"
 }
+
+resource "azurerm_role_assignment" "ghActionXYZ" {
+  principal_id = data.azuread_application.githubAction[0].object_id
+  role_definition_name = "Contributor"
+  scope = azurerm_resource_group.xyz.id
+}
