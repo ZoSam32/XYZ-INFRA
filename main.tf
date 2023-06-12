@@ -10,10 +10,11 @@ locals {
 
 terraform {
   backend "azurerm"{
-    resource_group_name = "acr-sample"
+    # resource_group_name = "acr-sample"
     storage_account_name = "tfstate7031"
     container_name = "tfstate"
     key = "terraform.tfstate"
+    access_key = var.key
   }
 }
 
