@@ -99,12 +99,12 @@ resource "azurerm_role_assignment" "acr" {
   scope                = data.azurerm_container_registry.xyz.id
 }
 
-data "azuread_application" "githubAction" {
+data "azuread_service_principal" "githubAction" {
   display_name = "ghActionXYZ"
 }
 
 resource "azurerm_role_assignment" "ghActionXYZ" {
-  principal_id = data.azuread_application.githubAction.application_id
+  principal_id = data.azuread_application.githubAction.object_id
   role_definition_name = "Contributor"
   scope = azurerm_resource_group.xyz.id
 }
