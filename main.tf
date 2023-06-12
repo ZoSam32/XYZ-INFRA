@@ -25,6 +25,13 @@ provider "azurerm" {
   features {}
 }
 
+provider "azuread" {
+  client_id       = var.client_id
+  client_secret   = var.client_secret
+  tenant_id       = var.tenant_id
+  features {}
+}
+
 resource "azurerm_resource_group" "xyz-metrics" {
   name     = "rg-${local.settings.environment}-${local.settings.az_region}-${local.settings.service}-metrics"
   location = local.settings.location
@@ -91,4 +98,8 @@ resource "azurerm_role_assignment" "acr" {
   principal_id         = azurerm_kubernetes_cluster.xyz.kubelet_identity[0].object_id
   role_definition_name = "AcrPull"
   scope                = data.azurerm_container_registry.xyz.id
+}
+
+data "azuread_application" "githubAction" {
+  display_name = "ghActionXYZ"
 }
