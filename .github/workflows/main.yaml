@@ -20,3 +20,5 @@ jobs:
       uses: hashicorp/setup-terraform@v2
       with:
         terraform_wrapper: false
+    - name: TF init
+      run: tf init
