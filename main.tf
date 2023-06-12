@@ -8,21 +8,16 @@ locals {
   )
 }
 
-# variable "client_secret" {
-#   description = "What is the password for the service principal account"
-# }
-# terraform {
-#   backend "azurerm" {
-#     container_name = "tstate"
-#     key            = "xyz/terraform.tfstate"
-#   }
-# }
+terraform {
+  backend "azurerm"{
+    resource_group_name = "acr-sample"
+    storage_account_name = "tfstate7031"
+    container_name = "tfstate"
+    key = "terraform.tfstate"
+  }
+}
 
 provider "azurerm" {
-#   subscription_id = local.settings.subscription_id
-#   client_id       = local.settings.spn_id
-#   client_secret   = var.client_secret
-#   tenant_id       = "e05b1f1d-4425-476a-8b6d-cf9e17a51da7"
   features {}
 }
 
