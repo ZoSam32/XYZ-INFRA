@@ -84,6 +84,6 @@ jobs:
       with:
         namespace: 'xyz-app'
         manifests: |
-          deploy.yaml
+          initial-deploy.yaml
         images: 'xyzappsample.azurecr.io/sample/xyzsample:latest'
         pull-images: false
