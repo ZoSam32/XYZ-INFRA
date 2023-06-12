@@ -34,3 +34,24 @@ jobs:
       with:
         name: tfplan
         path: tfplan
+
+  terraform-apply:
+      name: TF Apply
+      if: github.ref == 'refs/heads/main'
+      runs-on: ubuntu-latest
+      needs: [terraform-plan]
+      
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+      - name: Terraform Init
+        run: terraform init -backend-config="access_key=${{ secrets.AZ_TFSTATE_KEY }}"
+      - name: Download Terraform Plan
+        uses: actions/download-artifact@v3
+        with:
+          name: tfplan
+      - name: Terraform Apply
+        run: |
+        terraform apply -var="client_secret=${{ secrets.az_client_secret}}" -var="client_id=${{ secrets.az_client_id }}" -var="sub_id=${{ secrets.az_sub_id }}" -var="tenant_id=${{ secrets.az_tenant_id }}" -auto-approve tfplan
