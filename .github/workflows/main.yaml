@@ -21,4 +21,4 @@ jobs:
       with:
         terraform_wrapper: false
     - name: TF init
-      run: terraform init
+      run: terraform init -backend-config="access_key=${{ secrets.AZ_TFSTATE_KEY }}"
