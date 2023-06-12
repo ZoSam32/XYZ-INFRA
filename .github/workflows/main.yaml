@@ -56,3 +56,15 @@ jobs:
       - name: Terraform Apply
         run: |
           terraform apply -auto-approve tfplan
+
+  initial-xyz-deploy:
+    name: Deploy
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: [terraform-apply]
+
+    steps:
+    - name: AZ Login
+      uses: Azure/login@v1
+      with:
+        creds: '{"clientId":"${{ secrets.AZ_CLIENT_ID }}","clientSecret":"${{ secrets.AZ_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZ_SUB_ID }}","tenantId":"${{ secrets.AZ_TENANT_ID }}"}'
