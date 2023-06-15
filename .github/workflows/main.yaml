@@ -1,4 +1,4 @@
-name: Terraform Plan & Apply
+name: Solution Deploy
 
 on:
   push:
