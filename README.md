@@ -13,6 +13,10 @@ This repository contains the primary components for the XYZ public cloud POC. It
 
 Configure the backend services via the `setup/backend_resources.sh` script. 
 
-
 ## Components
+- Azure Blob Storage - Backend service for Terraform state file
+- Azure Container Registry - Backend service for a private contianer registry
+- Azure Kubernetes Serivce - A managed Kubernetes service for container orchestration
+- Azure Log Analytics Service - A managed observability service for Azure resource monitoring
+
 
