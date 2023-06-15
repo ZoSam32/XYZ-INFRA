@@ -21,4 +21,5 @@ Configure the backend services via the `setup/backend_resources.sh` script.
 
 ## Deploy POC
 To deploy the solution, trigger the primary GitHub Action `Solution Deploy`.
+
 [![Terraform Plan & Apply](https://github.com/ZoSam32/XYZ-INFRA/actions/workflows/main.yaml/badge.svg?branch=main)](https://github.com/ZoSam32/XYZ-INFRA/actions/workflows/main.yaml)
