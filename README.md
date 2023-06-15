@@ -1,3 +1,14 @@
 # XYZ-INFRA
 Hosting infra for XYZ
 
+## Overview
+
+This repository contains the primary components for the XYZ public cloud POC. It will serve as the inital hosting footprint and application deployment. 
+
+## Prerequisites 
+- Azure Subscription: Sign up [here](https://azure.microsoft.com/en-us/free/search/?ef_id=_k_CjwKCAjwyqWkBhBMEiwAp2yUFkfcZdiUYoQZTwCBPdQnxxcolk5jolBbTYyJf2qoCrvp9DnhZFoHZRoCe-AQAvD_BwE_k_&OCID=AIDcmmfq865whp_SEM__k_CjwKCAjwyqWkBhBMEiwAp2yUFkfcZdiUYoQZTwCBPdQnxxcolk5jolBbTYyJf2qoCrvp9DnhZFoHZRoCe-AQAvD_BwE_k_&gad=1&gclid=CjwKCAjwyqWkBhBMEiwAp2yUFkfcZdiUYoQZTwCBPdQnxxcolk5jolBbTYyJf2qoCrvp9DnhZFoHZRoCe-AQAvD_BwE)
+- Azure CLI: Install [here](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+- Terraform: Install [here](https://developer.hashicorp.com/terraform/downloads)
+- Docker: Install [here](https://docs.docker.com/engine/install/)
+## Components
+
