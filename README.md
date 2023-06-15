@@ -10,5 +10,9 @@ This repository contains the primary components for the XYZ public cloud POC. It
 - Azure CLI: Install [here](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
 - Terraform: Install [here](https://developer.hashicorp.com/terraform/downloads)
 - Docker: Install [here](https://docs.docker.com/engine/install/)
+
+Configure the backend services via the `setup/backend_resources.sh` script. 
+
+
 ## Components
 
