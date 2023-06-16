@@ -11,6 +11,8 @@ on:
       - 'backend/**'
       - 'cleanup/**'
   pull_request:
+    types:
+      - closed
     branches:
       - main
 
