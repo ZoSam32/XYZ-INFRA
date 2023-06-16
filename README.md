@@ -20,6 +20,6 @@ Configure the backend services via the `setup/backend_resources.sh` script.
 - Azure Log Analytics Service - A managed observability service for Azure resource monitoring
 
 ## Deploy POC
-To deploy the solution, trigger the primary GitHub Action `Solution Deploy`.
+To deploy the solution, trigger the primary GitHub Action `Solution Deploy` via merged PR to main
 
 [![Terraform Plan & Apply](https://github.com/ZoSam32/XYZ-INFRA/actions/workflows/main.yaml/badge.svg?branch=main)](https://github.com/ZoSam32/XYZ-INFRA/actions/workflows/main.yaml)
