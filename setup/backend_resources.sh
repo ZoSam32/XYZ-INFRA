@@ -1,7 +1,7 @@
 #!/bin/bash
 
-RESOURCE_GROUP_NAME=acr-sample-test
-REGISTRY_NAME=xyzappsamplezzz
+RESOURCE_GROUP_NAME=acr-sample
+REGISTRY_NAME=xyzappsample
 STORAGE_ACCOUNT_NAME=tfstate$RANDOM
 CONTAINER_NAME=tfstate
 
